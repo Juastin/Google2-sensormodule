@@ -3,12 +3,12 @@ String toon = "";
 
 void setup() {
   Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
-  pinMode(13, INPUT);//linkerknop
-  pinMode(12, INPUT);//rechterknop
-  pinMode(A5, INPUT);//lichtsensor
+  pinMode(13, INPUT); // left button
+  pinMode(12, INPUT); // right button
+  pinMode(A5, INPUT); // lightsensor
   pinMode(3, OUTPUT);
-  pinMode(11, OUTPUT);//lichtje
-  pinMode(10,OUTPUT);//speaker
+  pinMode(11, OUTPUT); // light
+  pinMode(10,OUTPUT); // speaker
 }
 
 long previousmillis = 0;
