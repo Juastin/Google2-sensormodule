@@ -27,6 +27,13 @@ void loop() {
     musictone = "";
   }
 
+//sendslightvalue
+  int lichtsterkte = analogRead(A5);
+  if(incomingByte == 'W'){
+    Serial.print(lichtsterkte);
+    digitalWrite(11,HIGH);
+  }
+
   //controller
   if (digitalRead(13) == HIGH && digitalRead(12) == HIGH) {
     Serial.print("P");
@@ -36,15 +43,5 @@ void loop() {
   }
   else if (digitalRead(12) == HIGH) {
     Serial.print("D");
-  }
-
-  
-  //Refreshes the newest lightsensor data every second
-  int lichtsterkte = analogRead(A5);
-  unsigned long currentmillis = millis();
-  if (currentmillis - previousmillis > 1000) {
-    previousmillis = millis();
-    Serial.flush();
-    Serial.print(lichtsterkte);
   }
 }
