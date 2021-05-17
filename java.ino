@@ -3,11 +3,12 @@ String toon = "";
 
 void setup() {
   Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
-  pinMode(13, INPUT);
-  pinMode(12, INPUT);
-  pinMode(A5, INPUT);
+  pinMode(13, INPUT);//linkerknop
+  pinMode(12, INPUT);//rechterknop
+  pinMode(A5, INPUT);//lichtsensor
   pinMode(3, OUTPUT);
-  pinMode(11, OUTPUT);
+  pinMode(11, OUTPUT);//lichtje
+  pinMode(10,OUTPUT);//speaker
 }
 
 long previousmillis = 0;
@@ -42,11 +43,11 @@ void loop() {
     Serial.print("D");
   }
 
-//  int lichtsterkte = analogRead(A5);
-//  //verstuurlichtsterkte
-//  unsigned long currentmillis = millis();
-//  if (currentmillis - previousmillis > 6000) {
-//    previousmillis = millis();
-//    Serial.print(lichtsterkte);
-//  }
+  int lichtsterkte = analogRead(A5);
+  //verstuurlichtsterkte
+  unsigned long currentmillis = millis();
+  if (currentmillis - previousmillis > 6000) {
+    previousmillis = millis();
+    Serial.print(lichtsterkte);
+  }
 }
